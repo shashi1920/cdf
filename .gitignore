@@ -5,5 +5,4 @@ settings_local.py
 settings_prod.py
 media/
 static/*
-migrations/
 env/
