@@ -13,20 +13,29 @@ MANAGERS = ADMINS
 
 ALLOWED_HOSTS = []
 
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+
 DATABASES = {
-'default': {
-         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-         'NAME': 'dcf',
-         'USER': 'dcf',
-         'PASSWORD':'dcf',
-         'HOST':'localhost',
-         'PORT':5432
-    },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'sqlite.db'),
-    #     },
+'default': db_from_env
     }
+
+
+# DATABASES = {
+# 'default': {
+#          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#          'NAME': 'dcf',
+#          'USER': 'dcf',
+#          'PASSWORD':'dcf',
+#          'HOST':'localhost',
+#          'PORT':5432
+#     },
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': os.path.join(BASE_DIR, 'sqlite.db'),
+#     #     },
+#     }
 
 CACHES = {
     'default': {
@@ -232,6 +241,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 # Try to load local or prod settings if such exists
 try:
