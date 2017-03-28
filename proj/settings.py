@@ -11,7 +11,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dcftest.herokuapp.com']
 
 
 import dj_database_url
