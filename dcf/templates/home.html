@@ -1,0 +1,66 @@
+{% extends "_base.html" %}
+{% block title %}home{% endblock title %}
+
+{% block body %}
+
+    <article class="page-container">
+
+
+        <section class="body">
+            <div class="jump_to_continents">
+              {%  for c in continents %}
+
+  <a href="#{{ c.code }}" > {{ c.name }}</a>
+
+
+{% endfor %}
+            </div>
+
+            <div id="map-canvas" style="border: 1px solid #551A8B; background-color: #71A4CD;"></div>
+
+ <div class="colmask">
+
+                    {%  for continent in continents %}
+                         <section id="{{ continent.code }}" > <h2>{{ continent.name }}</h2>
+<div class="row">
+
+<hr/>
+        {%  for country in continent.countries.all %}
+
+            <div class="col-md-3">
+             <h4> {{ country.name }}</h4>
+                     <ul>
+                     {%  for city in country.cities.all %}
+                         <li><a href="#">{{ city.name }}</a></li>
+
+                         {% endfor %}
+
+                    </ul>
+            </div>
+            {% endfor %}
+
+<hr/>
+
+
+                </div>
+
+
+                         </section>
+                        </div>
+                        </section>
+
+
+    </article>
+    <div class="row">
+        <div class="col-lg-12">
+
+
+
+
+
+{% endfor %}
+
+        </div>
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,13 @@
+.badge-notify{
+    background:gray;
+    position:relative;
+    top: -20px;
+    left: -15px;
+}
+
+.sites .box {
+    padding: 0px 5px 1em;
+    overflow: hidden;
+    float: left;
+    width: 23%;
+}
